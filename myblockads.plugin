@@ -26,7 +26,6 @@ DOMAIN, api.iqiyi.com, REJECT
 DOMAIN, ca.iadsdk.apple.com, DIRECT
 DOMAIN-SUFFIX, advp.apple.com, REJECT
 DOMAIN-SUFFIX, iad-apple.com, REJECT
-DOMAIN-SUFFIX, iadsdk.apple.com, REJECT
 DOMAIN, advertising.apple.com, REJECT
 DOMAIN, api-adservices.apple.com, REJECT
 DOMAIN, apple.comscoreresearch.com, REJECT
