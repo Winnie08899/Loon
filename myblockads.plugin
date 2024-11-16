@@ -4,7 +4,7 @@
 # 放松双眼
 DOMAIN, adservice.sigmob.cn, REJECT
 
-# Google
+# TVBAnywhere
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
 # 京东
