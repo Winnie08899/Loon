@@ -4,41 +4,109 @@
 # 放松双眼
 DOMAIN, adservice.sigmob.cn, REJECT
 
-
-
-
+# Google
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
+# 京东
+DOMAIN-SUFFIX,jzt.jd.com
+DOMAIN-SUFFIX,img-x.jd.com
+DOMAIN-SUFFIX,du.jd.com
+DOMAIN-SUFFIX,c-nfa.jd.com
+DOMAIN-SUFFIX,cm.jd.com
+DOMAIN-SUFFIX,jddebug.com
+DOMAIN-KEYWORD,policy.jd.com
+DOMAIN-KEYWORD,kepler.jd.com
+DOMAIN-KEYWORD,bdsp.x.jd.com
+DOMAIN-KEYWORD,keplerapi.jd.com
+DOMAIN-KEYWORD,mapi.m.jd.com
+# 屏蔽DNS
+DOMAIN, dns.jd.com
+IP-CIDR, 101.124.19.122/32, no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128, no-resolve
 
+# 淘宝
+DOMAIN-SUFFIX,apoll.m.taobao.com
+DOMAIN-SUFFIX,h-adashx.ut.taobao.com
+DOMAIN-SUFFIX,w.m.taobao.com
+DOMAIN, tunion-api.m.taobao.com
+DOMAIN-SUFFIX,re.m.taobao.com
+DOMAIN-SUFFIX,agoodm.m.taobao.com
+DOMAIN-SUFFIX,ai.taobao.com
+DOMAIN-SUFFIX,api.waptest.taobao.com
+DOMAIN-SUFFIX,dsp.simba.taobao.com
+DOMAIN-SUFFIX,fav.simba.taobao.com
+DOMAIN-SUFFIX,m.simba.taobao.com
+DOMAIN-SUFFIX,mclick.simba.taobao.com
+DOMAIN-SUFFIX,re.taobao.com
+DOMAIN-SUFFIX,redirect.simba.taobao.com
+DOMAIN-SUFFIX,simba.m.taobao.com
+DOMAIN-SUFFIX,srd.simba.taobao.com
+DOMAIN-SUFFIX,temai.taobao.com
+DOMAIN-SUFFIX,textlink.simba.taobao.com
+DOMAIN-SUFFIX,unitacs.m.taobao.com
+DOMAIN-SUFFIX,acs4baichuan.m.taobao.com
+DOMAIN-SUFFIX,adashbc.ut.taobao.com
+DOMAIN-SUFFIX,adash-c.ut.taobao.com
+DOMAIN-SUFFIX,adashxgc.ut.taobao.com
+DOMAIN-SUFFIX,adashx4yt.m.taobao.com
+DOMAIN-SUFFIX,tunion-api.m.taobao.com
+DOMAIN-SUFFIX,tns.simba.taobao.com
+DOMAIN-SUFFIX,click.mz.simba.taobao.com
+DOMAIN-SUFFIX,click.simba.taobao.com
+DOMAIN-SUFFIX,click.tz.simba.taobao.com
+DOMAIN-SUFFIX,stat.simba.taobao.com
+DOMAIN-SUFFIX,m-adash.m.taobao.com
+DOMAIN-SUFFIX,adashbc.m.taobao.com
 
-
-
-
-
-
-
-
-
-
+# 美团
+DOMAIN, flowplus.meituan.net
+DOMAIN-SUFFIX,analytics.meituan.net
+DOMAIN-SUFFIX,meituan.xn
+DOMAIN-SUFFIX,meituan.yoga
+DOMAIN-SUFFIX,meituangov.cn
+DOMAIN-SUFFIX,report.meituan.com
+DOMAIN-SUFFIX,wmlog.meituan.com
+DOMAIN-SUFFIX,ad.e.waimai.sankuai.com
+DOMAIN-SUFFIX,mads.meituan.com
+DOMAIN-SUFFIX,dreport.meituan.net
+DOMAIN-SUFFIX,d.meituan.net
 
 # Outlook
-DOMAIN, acdn.adnxs.com, REJECT
-DOMAIN, mediation.adnxs.com, REJECT
-DOMAIN, sin3-ib.adnxs.com, REJECT
-
-
-
-
-
-
-
-
+DOMAIN, acdn.adnxs.com
+DOMAIN, mediation.adnxs.com
+DOMAIN, sin3-ib.adnxs.com
 
 
 [Rewrite]
-# 得物 //app.dewu.com, cdn.poizon.com
+# 得物 // app.dewu.com, cdn.poizon.com
 ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg reject-200
+
+# 饿了么 // elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com
+# 开屏广告
+^https?:\/\/elemecdn\.com\/.+\/sitemap reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 reject-img
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_1\d{3},h_2\d{3}\/format,webp\/ reject
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_6\d{2},h_8\d{2}\/format,webp\/ reject
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{3},h_\d{4}\/format,webp\/ reject
+^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? reject
+^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ reject
+^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) reject
+
+# 美团 & 美团外卖 // img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
+^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) reject-dict
+^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg reject-dict
+^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json reject-dict
+^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ reject-dict
+
+# 拼多多 // api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com
+^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash reject
+^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? reject-dict
+# 多多买菜 开屏广告
+^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$ response-body-replace-regex "list":\[.+\] "list":[]
 
 # 瑞幸咖啡 //capi.lkcoffee.com
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/growUp\/calendarList - reject
@@ -50,11 +118,16 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList - reject
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
 
-
-
-
-
-[Script]
+# 淘宝 // acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources reject-dict
+^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
 
 [MITM]
-hostname = app.dewu.com, cdn.poizon.com, capi.lkcoffee.com
+hostname = app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
