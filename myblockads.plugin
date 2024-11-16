@@ -2,10 +2,10 @@
 
 [Rule]
 # 放松双眼
-DOMAIN, adservice.sigmob.cn, REJECT
+DOMAIN, adservice.sigmob.cn
 
 # TVBAnywhere
-DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
+DOMAIN-KEYWORD, ads.g.doubleclick
 
 # 京东
 DOMAIN-SUFFIX,jzt.jd.com
@@ -21,8 +21,8 @@ DOMAIN-KEYWORD,keplerapi.jd.com
 DOMAIN-KEYWORD,mapi.m.jd.com
 # 屏蔽DNS
 DOMAIN, dns.jd.com
-IP-CIDR, 101.124.19.122/32, no-resolve
-IP-CIDR6,2402:db40:5100:1011::5/128, no-resolve
+IP-CIDR, 101.124.19.122/32, REJECT, no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128, REJECT, no-resolve
 
 # 淘宝
 DOMAIN-SUFFIX,apoll.m.taobao.com
