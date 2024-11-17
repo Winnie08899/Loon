@@ -137,7 +137,7 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
 
 [Script]
-# > 12306
+# 12306
 http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60, tag=12306
 
 # 京东
