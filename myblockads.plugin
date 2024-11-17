@@ -2,6 +2,9 @@
 #!desc = 自用去广告插件
 
 [Rule]
+# 12306
+DOMAIN, ad.12306.cn, DIRECT
+
 # 放松双眼
 DOMAIN, adservice.sigmob.cn, REJECT
 
@@ -134,8 +137,15 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
 
 [Script]
+# > 12306
+http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60, tag=12306
+
 # 京东
 http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body=true, timeout=60, tag=京东
 
+# 淘宝
+http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
+http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
+
 [MITM]
-hostname = app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
