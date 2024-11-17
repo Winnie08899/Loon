@@ -2,9 +2,6 @@
 #!desc = 自用去广告插件
 
 [Rule]
-# 12306
-DOMAIN, ad.12306.cn, DIRECT
-
 # 放松双眼
 DOMAIN, adservice.sigmob.cn, REJECT
 
