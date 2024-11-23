@@ -76,15 +76,13 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 # 多多买菜 开屏广告
 ^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$ response-body-replace-regex "list":\[.+\] "list":[]
 
-# 瑞幸咖啡 //capi.lkcoffee.com
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/growUp\/calendarList - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/promotion\/giftCard\/topPage - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/base\/myLittleLuck - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/core\/v2\/menu\/ordinaryUserLayeredArea - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/common\/modules - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/core\/v2\/homepage\/homePageCoffeeList - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList - reject
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
+# 瑞幸咖啡 // capi.lkcoffee.com, ecapi.lkcoffee.com, m.lkcoffee.com, img0*.luckincoffeecdn.com
+# 倒计时可能还在
+^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew reject
+^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList reject
+^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page response-body-replace-regex\{.+\} {"status":"SUCCESS"}
+^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main response-body-replace-regex "popTitle":".+?" "popTitle":""
+^https?:\/\/img0[1-9]{1}\.luckincoffeecdn\.com\/group\d/M00/[A-Z0-9]{2}/[A-Z0-9]{2}/[a-zA-Z0-9]{29}\.(jpg|jpeg)_\.webp reject-200
 
 # 淘宝 // acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) reject-dict
@@ -111,4 +109,4 @@ http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvid
 http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
 
 [MITM]
-hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, ecapi.lkcoffee.com, m.lkcoffee.com, img0*.luckincoffeecdn.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
