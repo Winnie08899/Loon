@@ -20,12 +20,6 @@ IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
 # 拼多多
 AND,((URL-REGEX,^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
 AND,((URL-REGEX,^http:\/\/\[((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\]\/d4\?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
-DOMAIN,titan.pinduoduo.com,REJECT
-DOMAIN,ta-a.pinduoduo.com,REJECT
-DOMAIN,ta.pinduoduo.com,REJECT
-DOMAIN,th-a.pinduoduo.com,REJECT
-DOMAIN,th-b.pinduoduo.com,REJECT
-DOMAIN,th.pinduoduo.com,REJECT
 
 # 淘宝
 DOMAIN,adashx.m.taobao.com,REJECT
@@ -81,19 +75,11 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json reject-dict
 ^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ reject-dict
 
-# 拼多多 // api.pinduoduo.com, api.yangkeduo.com
-^https:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/(?:likes|my_order_group|new_chat_group|order_express_group|personal) reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/flow\/hungary\/window\/global\/v2\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render response-body-json-del bottom_section_list ui.bottom_section ui.live_section.float_info
-^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\? response-body-json-del monthly_card_entrance personal_center_style_v2_vo icon_set.icons icon_set.top_personal_icons title_bar_items
-^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data reject-dict
-^https:\/\/api\.pinduoduo\.com\/search response-body-json-del expansion
-^https:\/\/api\.pinduoduo\.com\/search_hotquery\? reject-dict
+# 拼多多 // api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com
+^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash reject
+^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? reject-dict
+# 多多买菜 开屏广告
+^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$ response-body-replace-regex "list":\[.+\] "list":[]
 
 # 瑞幸咖啡 //capi.lkcoffee.com
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/growUp\/calendarList - reject
@@ -130,4 +116,4 @@ http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvid
 http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
 
 [MITM]
-hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
