@@ -12,21 +12,10 @@ DOMAIN, adservice.sigmob.cn, REJECT
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
 # 京东
-DOMAIN-SUFFIX,jzt.jd.com, REJECT
-DOMAIN-SUFFIX,img-x.jd.com, REJECT
-DOMAIN-SUFFIX,du.jd.com, REJECT
-DOMAIN-SUFFIX,c-nfa.jd.com, REJECT
-DOMAIN-SUFFIX,cm.jd.com, REJECT
-DOMAIN-SUFFIX,jddebug.com, REJECT
-DOMAIN-KEYWORD,policy.jd.com, REJECT
-DOMAIN-KEYWORD,kepler.jd.com, REJECT
-DOMAIN-KEYWORD,bdsp.x.jd.com, REJECT
-DOMAIN-KEYWORD,keplerapi.jd.com, REJECT
-DOMAIN-KEYWORD,mapi.m.jd.com, REJECT
-# 屏蔽DNS
-DOMAIN, dns.jd.com, REJECT
-IP-CIDR, 101.124.19.122/32, REJECT, no-resolve
-IP-CIDR6,2402:db40:5100:1011::5/128, REJECT, no-resolve
+DOMAIN,dns.jd.com,REJECT
+URL-REGEX,^http:\/\/\w{32}\.jddebug\.com\/diagnose\?,REJECT
+IP-CIDR,101.124.19.122/32,REJECT,no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
 
 # 淘宝
 DOMAIN-SUFFIX,apoll.m.taobao.com, REJECT
@@ -99,9 +88,8 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ reject
 ^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) reject
 
-# 京东 // api.m.jd.com, dns.jd.com
-# 禁京东直播小窗
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getWidgetV1052 reject
+# 京东 // api.m.jd.com
+^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
 
 # 美团 & 美团外卖 // img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
 ^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
@@ -149,4 +137,4 @@ http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvid
 http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
 
 [MITM]
-hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, dns.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
