@@ -88,7 +88,7 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList - reject
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
 
-# 淘宝 // acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+# 淘宝 // acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject-dict
@@ -113,4 +113,4 @@ http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvid
 http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60, tag=淘宝
 
 [MITM]
-hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
