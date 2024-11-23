@@ -2,6 +2,9 @@
 #!desc = 自用去广告插件
 
 [Rule]
+# 12306
+DOMAIN, ad.12306.cn, DIRECT
+
 # 放松双眼
 DOMAIN, adservice.sigmob.cn, REJECT
 
@@ -99,6 +102,9 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 # 京东 // api.m.jd.com, dns.jd.com
 # 禁京东直播小窗
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getWidgetV1052 reject
+
+# 建设银行
+^http:\/\/image1\.ccb\.com\/newsinfo\/eBranch\/check\/(?:nf\/newfin\/activity|po\/poortheme\/activity)\/\w+\.png reject
 
 # 美团 & 美团外卖 // img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
 ^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
