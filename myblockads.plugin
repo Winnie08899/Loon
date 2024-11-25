@@ -2,9 +2,6 @@
 #!desc = 自用去广告插件
 
 [Rule]
-# 放松双眼
-DOMAIN, adservice.sigmob.cn, REJECT
-
 # TVBAnywhere
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
