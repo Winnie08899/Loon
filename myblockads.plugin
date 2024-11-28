@@ -2,6 +2,10 @@
 #!desc = 自用去广告插件
 
 [Rule]
+# 屏蔽系统更新
+DOMAIN,xp.apple.com, REJECT
+DOMAIN,gdmf.apple.com, REJECT
+
 # TVBAnywhere
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
