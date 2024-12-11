@@ -5,12 +5,6 @@
 # TVBAnywhere
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
-# 京东
-DOMAIN,dns.jd.com,REJECT
-URL-REGEX,^http:\/\/\w{32}\.jddebug\.com\/diagnose\?,REJECT
-IP-CIDR,101.124.19.122/32,REJECT,no-resolve
-IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
-
 # 淘宝
 DOMAIN,adashx.m.taobao.com,REJECT
 DOMAIN,ossgw.alicdn.com,REJECT
@@ -41,9 +35,6 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 # 得物 // app.dewu.com, cdn.poizon.com
 ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg reject-200
-
-# 京东 // api.m.jd.com
-^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
 
 # 美团 & 美团外卖 // img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
 ^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
@@ -86,12 +77,9 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 # 12306
 http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60, tag=12306
 
-# 京东
-http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://kelee.one/Resource/Script/JD/JD_remove_ads.js, requires-body=true, tag=移除京东广告
-
 # 淘宝
 http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 
 [MITM]
-hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, video-dsp.pddpic.com, t-dsp.pinduoduo.com, images.pinduoduo.com, api.pinduoduo.com, api.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, video-dsp.pddpic.com, t-dsp.pinduoduo.com, images.pinduoduo.com, api.pinduoduo.com, api.yangkeduo.com, capi.lkcoffee.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
