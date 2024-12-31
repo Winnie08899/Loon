@@ -46,6 +46,9 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json reject-dict
 ^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ reject-dict
 
+# 瑞幸咖啡 // capi.lkcoffee.com
+^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/(homePage\/contactor\/modules|app\/adposNew) - reject-200
+
 # 淘宝 // acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-dict
@@ -71,4 +74,4 @@ http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvide
 http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 
 [MITM]
-hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, capi.lkcoffee.com
