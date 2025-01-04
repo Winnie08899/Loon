@@ -70,7 +70,6 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
 
 # YouTube // rr*.googlevideo.com, youtubei.googleapis.com
-# 播放页广告
 ^https:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? reject-dict
 
 [Script]
