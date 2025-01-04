@@ -81,4 +81,4 @@ http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvide
 http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 
 [MITM]
-hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, capi.lkcoffee.com
+hostname = ad.12306.cn, list-app-m.i4.cn, img.meituan.net, app.dewu.com, cdn.poizon.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, capi.lkcoffee.com
