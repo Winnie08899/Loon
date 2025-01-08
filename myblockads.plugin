@@ -39,13 +39,6 @@ DOMAIN, sin3-ib.adnxs.com, REJECT
 ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg reject-200
 
-# 美团 & 美团外卖 // img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
-^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
-^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) reject-dict
-^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg reject-dict
-^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json reject-dict
-^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ reject-dict
-
 # 瑞幸咖啡 // capi.lkcoffee.com
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/growUp\/calendarList reject
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/promotion\/giftCard\/topPage reject
@@ -78,4 +71,4 @@ http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvide
 http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 
 [MITM]
-hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, capi.lkcoffee.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
+hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, capi.lkcoffee.com
