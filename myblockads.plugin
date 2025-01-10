@@ -13,19 +13,6 @@ DOMAIN,hudong.alicdn.com,REJECT
 DOMAIN,h-adashx.ut.taobao.com,REJECT
 DOMAIN,ut.taobao.com,REJECT
 
-# 美团
-DOMAIN, flowplus.meituan.net, REJECT
-DOMAIN-SUFFIX,analytics.meituan.net, REJECT
-DOMAIN-SUFFIX,meituan.xn, REJECT
-DOMAIN-SUFFIX,meituan.yoga, REJECT
-DOMAIN-SUFFIX,meituangov.cn, REJECT
-DOMAIN-SUFFIX,report.meituan.com, REJECT
-DOMAIN-SUFFIX,wmlog.meituan.com, REJECT
-DOMAIN-SUFFIX,ad.e.waimai.sankuai.com, REJECT
-DOMAIN-SUFFIX,mads.meituan.com, REJECT
-DOMAIN-SUFFIX,dreport.meituan.net, REJECT
-DOMAIN-SUFFIX,d.meituan.net, REJECT
-
 # Outlook
 DOMAIN, acdn.adnxs.com, REJECT
 DOMAIN, mediation.adnxs.com, REJECT
