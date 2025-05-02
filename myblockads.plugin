@@ -5,23 +5,12 @@
 # TVBAnywhere
 DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
 
-# 淘宝
-DOMAIN,adashx.m.taobao.com,REJECT
-DOMAIN,ossgw.alicdn.com,REJECT
-DOMAIN,ems.youku.com,REJECT
-DOMAIN,hudong.alicdn.com,REJECT
-DOMAIN,h-adashx.ut.taobao.com,REJECT
-DOMAIN,ut.taobao.com,REJECT
-
 # Outlook
 DOMAIN, acdn.adnxs.com, REJECT
 DOMAIN, mediation.adnxs.com, REJECT
 DOMAIN, sin3-ib.adnxs.com, REJECT
 
 [Rewrite]
-# 爱思助手 // list-app-m.i4.cn
-^https?:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml reject
-
 # 得物 // app.dewu.com, cdn.poizon.com
 ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg reject-200
@@ -48,4 +37,4 @@ http-response ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvide
 http-response ^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true, tag=移除淘宝开屏广告
 
 [MITM]
-hostname = ad.12306.cn, list-app-m.i4.cn, app.dewu.com, cdn.poizon.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = ad.12306.cn, app.dewu.com, cdn.poizon.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
