@@ -1,0 +1,7 @@
+# TVBAnywhere
+DOMAIN-KEYWORD, ads.g.doubleclick, REJECT
+
+# Outlook
+DOMAIN, acdn.adnxs.com, REJECT
+DOMAIN, mediation.adnxs.com, REJECT
+DOMAIN, sin3-ib.adnxs.com, REJECT
